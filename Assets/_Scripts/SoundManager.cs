@@ -9,16 +9,12 @@ public class SoundManager : MonoBehaviour
 
     void Awake()
     {
-        // --- Singleton Pattern Setup ---
-        // If an instance of this already exists and it's not this one, destroy this one.
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
-        // Otherwise, set the instance to this.
         Instance = this;
-        // Don't destroy this object when loading new scenes.
         DontDestroyOnLoad(gameObject);
 
         audioSource = GetComponent<AudioSource>();

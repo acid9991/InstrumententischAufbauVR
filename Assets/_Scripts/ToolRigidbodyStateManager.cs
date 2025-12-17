@@ -52,9 +52,7 @@ public class ToolRigidbodyStateManager : MonoBehaviour
     {
         if (m_Rigidbody != null)
         {
-            // Crucial: Set Rigidbody to non-kinematic and remove constraints
-            // This allows the XRGrabInteractable to move it freely with the hand
-            // and allows physics to act on it if it's dropped.
+            // Set Rigidbody to non-kinematic and remove constraints, this allows the XRGrabInteractable to move it freely with the hand and allows physics to act on it if it's dropped.
             m_Rigidbody.isKinematic = false;
             m_Rigidbody.constraints = RigidbodyConstraints.None;
             Debug.Log($"Tool {gameObject.name}: Grabbed! Rigidbody isKinematic=false, constraints=None.");
@@ -63,9 +61,6 @@ public class ToolRigidbodyStateManager : MonoBehaviour
 
     private void OnReleased(SelectExitEventArgs args)
     {
-        // This method doesn't directly change the kinematic state here.
-        // The GameController.CheckToolPlacement will be called shortly after this
-        // to determine if the tool needs to be snapped and made kinematic.
         Debug.Log($"Tool {gameObject.name}: Released! Waiting for placement check...");
     }
 
@@ -73,10 +68,9 @@ public class ToolRigidbodyStateManager : MonoBehaviour
     {
         if (m_Rigidbody != null)
         {
-            // Crucial: Set Rigidbody to kinematic and freeze all movement
-            // This locks the tool to the table surface at its snapped position.
+            // Crucial: Set Rigidbody to kinematic and freeze all movement, this locks the tool to the table surface at its snapped position.
             m_Rigidbody.isKinematic = true;
-            m_Rigidbody.constraints = RigidbodyConstraints.FreezeAll; // Freeze X, Y, Z position and rotation
+            m_Rigidbody.constraints = RigidbodyConstraints.FreezeAll;
             Debug.Log($"Tool {gameObject.name}: Snapped to table! Rigidbody isKinematic=true, constraints=FreezeAll.");
         }
     }

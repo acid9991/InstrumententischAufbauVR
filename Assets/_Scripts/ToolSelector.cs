@@ -102,16 +102,16 @@ public class ToolSelector : MonoBehaviour
 
         if (tool.remainingCount > 0)
         {
-            // Button is available, use default color and make it interactable.
+            // Button is available
             buttonText.text = tool.totalCount > 1 ? $"{nameToShow} x{tool.remainingCount}" : nameToShow;
-            tool.uiButton.GetComponent<Image>().color = defaultColor; // Default Color
+            tool.uiButton.GetComponent<Image>().color = defaultColor; 
             tool.uiButton.interactable = true;
         }
         else
         {
-            // Button is depleted, use selected (dark red) color and make it non-interactable.
+            // Button is depleted
             buttonText.text = nameToShow;
-            tool.uiButton.GetComponent<Image>().color = selectedColor; // Dark Red Color
+            tool.uiButton.GetComponent<Image>().color = selectedColor; 
             tool.uiButton.interactable = false;
         }
     }

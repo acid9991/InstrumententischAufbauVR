@@ -336,10 +336,9 @@ public class GameController : MonoBehaviour
 
     private void PlayVictoryEffects()
     {
-        // Play the victory sound
+        // victory sound
         SoundManager.Instance.PlaySound(finishGameSound);
-
-        // Play the confetti particle system
+        // confetti particle system
         if (victoryConfetti != null)
         {
             victoryConfetti.Play();
@@ -507,7 +506,7 @@ public class GameController : MonoBehaviour
         toolSelector.ResetTools();
         ResetGameState();
         DestroyAllGhostPrefabs();
-        InitializePlacementData(); // Re-initialize ghosts and placement data
-        UpdateTotalScoreText(); // Ensure score display is zero
+        InitializePlacementData(); // re-initialize ghosts and placement data
+        UpdateTotalScoreText(); // score display is zero
     }
 }
