@@ -16,3 +16,6 @@ This project is a Virtual Reality simulation designed to train scrub nurses in s
 4. Open the project.
 5. In the Project window, go to `Assets/Scenes` and open **MAIN**.
 6. Press Play (requires a VR headset connected).
+
+## License
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
